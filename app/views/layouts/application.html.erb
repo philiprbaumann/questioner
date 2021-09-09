@@ -2,13 +2,26 @@
 <html>
   <head>
     <title>Questioner</title>
+    <% if @current_user.present? %>
+      <h3>You are current logged in as: <%= @current_user.name %></h3>
+    <% else %>
+      <h3>You are not current logged in.</h3>
+    <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
-
+    
   <body>
     <%= yield %>
+
+
+<h2>Here is a list of our surveyed results:</h2>
+
+
+
+<h2>
+
   </body>
 </html>
