@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
 
+  # Creates a new answer object. Has no new() method as Answer object is instantiated in surveys#index. 
   def create
     @answer = Answer.new(answer_params)
     if @answer.save
@@ -7,10 +8,6 @@ class AnswersController < ApplicationController
     else
       redirect_to :root
     end
-  end
-
-  def index
-    @answers = Answer.all()
   end
 
   private

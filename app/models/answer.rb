@@ -1,9 +1,9 @@
 class Answer < ApplicationRecord
+    
     belongs_to :survey
 
     validates :response, inclusion: [true, false]
-    # belongs_to :user    
-    # Uncomment once authentication is added.
+    # belongs_to :user Uncomment once authentication is added.
 
     # Method to fetch the percentages of answers that are yes or no for each survey as well as total count of answers.
     def self.fetch_data

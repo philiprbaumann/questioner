@@ -59,4 +59,3 @@ Please use Rails to build a simple survey tool, with the following requirements:
 
 
 You should return back to us a single compressed file that contains the source for this Rails app.
-
