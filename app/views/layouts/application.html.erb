@@ -2,26 +2,25 @@
 <html>
   <head>
     <title>Questioner</title>
-    <% if @current_user.present? %>
-      <h3>You are current logged in as: <%= @current_user.name %></h3>
-    <% else %>
-      <h3>You are not current logged in.</h3>
-    <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> 
   </head>
-    
+  <h1 class="container justify-content-center">
+    <%= link_to "Questioner", root_path %>
+  </h1>
+  <div class="container justify-content-center">
+    <div class="col-md-6">
+      <%= link_to "Create New Survey", new_surveys_path %>
+    </div>
+    <div class="col-md-6">
+      <%= link_to "Create New User", new_users_path %>
+    </div>
+  </div>
   <body>
     <%= yield %>
 
-
-<h2>Here is a list of our surveyed results:</h2>
-
-
-
-<h2>
 
   </body>
 </html>

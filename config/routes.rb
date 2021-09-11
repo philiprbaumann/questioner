@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  root 'main#index'
+  root 'surveys#index'
+  
+  # ANSWER
+  resource :answers, only: [:create, :new, :index] 
 
-  post 'answer/create'
-  get 'user/index'
-  post 'user/create'
-  get 'survey/index'
+  # USER
+  resource :users, only: [:create, :new, :index] 
+
+  # SURVEY
+  resource :surveys, only: [:create, :new, :index]
+  post 'surveys/index', :to => 'answers#create'
 end

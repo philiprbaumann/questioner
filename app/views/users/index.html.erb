@@ -1,0 +1,7 @@
+<!-- This is where you could do some @current_user management. -->
+<!-- <% if @current_user.present? %> -->
+<% if @user.present? %>
+  <h3>You are current logged in as: <%= @user.name %></h3>
+<% else %>
+  <h3>You are not currently logged in.</h3>
+<% end %>

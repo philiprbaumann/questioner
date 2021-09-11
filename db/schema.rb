@@ -13,10 +13,11 @@
 ActiveRecord::Schema.define(version: 2021_09_09_022725) do
 
   create_table "answers", force: :cascade do |t|
-    t.integer "question_id"
+    t.integer "survey_id"
     t.boolean "response"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["survey_id"], name: "index_answers_on_survey_id"
   end
 
   create_table "surveys", force: :cascade do |t|
@@ -31,4 +32,5 @@ ActiveRecord::Schema.define(version: 2021_09_09_022725) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "answers", "surveys"
 end

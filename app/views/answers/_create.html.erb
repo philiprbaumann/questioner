@@ -1,0 +1,13 @@
+<div class="container mt-4">
+    <%= simple_form_for @answer do |f| %>
+    <div class="row">
+        <div class="col-md-6">
+            <%= f.input :response, as: :radio_buttons, label: 'Response:', include_blank: false, collection: [['YES',true], ['NO', false]] %>
+            <%= f.input :survey_id, as: :hidden, input_html: { value: survey_id } %>
+        </div>
+        <div class="col-md-6">
+            <%= f.submit 'Submit answer' %>
+        </div>
+    </div>
+    <% end %>
+</div>

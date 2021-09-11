@@ -1,2 +1,34 @@
-<h1>Surveys#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+<div class="container mt-4">
+  <h3>Surveys:</h3>
+   <% @surveys.each do |survey| %>
+      <hr>
+      <div class="container mt-4 col-md-12">
+         <div class="row col-md-12" >
+            <div class="col-md-3"><strong><label>Question:</label></strong></div>
+            <div class="col-md-9 text-break" style="min-width: 0; white-space: initial; overflow-wrap: break-word; overflow: auto;">
+               <%= survey.question %>
+            </div>
+            <%= render partial: 'answers/create', locals: {:survey_id => survey.id} %>
+         </div>
+         <br>
+         <br>
+         <div class="row col-md-12 justify-content-center">
+            <% if !@answer_data.has_key?(survey.id) or @answer_data[survey.id][:total_ct] == 0 %>
+               <div class= "col-md-12">No response data yet.</div>
+            <% else %>
+               <div class= "col-md-6">
+                  <div class="col-md-2"><strong><label>Yes:</label></strong></div>
+                  <div class="col-md-3"><%= @answer_data[survey.id][:pct] %> %</div>
+               </div>
+               <div class= "col-md-6">
+                  <div class="col-md-2"><strong><label>No:</label></strong></div>
+                  <div class="col-md-3"><%= (100.0 - @answer_data[survey.id][:pct]).round(2) %> %</div>
+               </div>
+            <% end %>
+         </div>
+      </div>
+   <% end %>
+</div>
+<br>
+<br>
+<br>
